@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #e5e5e5;
+  font-family: "Roboto", sans-serif;
+  
+}
+
+.contenedor-crud-perritos{
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 150px;
+  background-color: white;
+}
+
+.encabezado-crud{
+  background-color: #C4C4C4;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-left: 50px;
+  padding-bottom: 30px;
+}
+.titulo-encabezado-crud h1{
+  font-size: 36px;
+}
+
+.texto-agregar-crud p {
+  font-size: 12px;
+  padding-top: 20px;
+  padding-right: 30px;
+  font-weight: 300;
+}
+
+
+.datos-perrito{
+  display: flex;
+  justify-content: center
+}
+
+.edit-perrito img {
+  height: 30px;
+  padding-left: 20px;
+}
+
+.delete-perrito img {
+  height: 30px;
+  padding-right: 20px;
+}
+.imagen-perrito img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-left: 20px;
+  object-fit: cover;
+}
+
+.cabecera-perrito{
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+.item-perrito{
+  border: 1px solid #A1A1A1;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  position: relative;
+}
+
+
+.contenedor-perrito{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap:20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+}
+
+.nombre-perrito{
+  text-align: center;
+  font-size: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.telefono-perrito{
+  margin-top: 10px;
+}
+
+.pais-perrito{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.descripcion-perrito{
+  margin-top: 10px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.mensaje-eliminar{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 469px; 
+  height: 204px; 
+  margin-top: 0px;
+  margin-left: -200px; 
+  background-color: white;
+  border: 2px solid blue; 
+
+}
+
+.mensaje-eliminar p{
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+
+
+.contenedor-botones{
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+
+.boton-eliminar, .boton-cancelar{
+
+  background-color: #C4C4C4;
+  height: 41px;
+  width: 129px;
+  margin-top: 20px;
+  border: none;
+
+}
+
+.mensaje-eliminar{
+  display: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100;0,200;0,500;1,100;1,200;1,500&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+
