@@ -7,6 +7,7 @@ const botonEliminar=document.querySelector("#boton-eliminar");
 const cancelarEliminar=document.querySelector("#cancelar-eliminar");
 const eliminarmensaje=document.querySelector("#mensaje-eliminar"); 
 
+
 //Consumiendo Servicio  Get Axios
 const reaCastAxios= async ()=>{
   try {
@@ -22,18 +23,19 @@ const reaCastAxios= async ()=>{
 window.addEventListener("DOMContentLoaded",reaCastAxios());
 
 function printHTML(cats){
+    contenedorPerritos.innerHTML = '';
     cats.forEach(cat => {  
         const row=document.createElement("div");
         row.innerHTML=` <div class="item-perrito">
         <div class="cabecera-perrito">
             <div class="edit-perrito">
-              <img src="img/editar.svg" data-id=${cat.id}>
+              <img src="imagenes/editar.svg" data-id="${cat.id}">
             </div>
             <div class="imagen-perrito">
               <img src=${cat.img}>
             </div>
             <div class="delete-perrito">
-              <img src="img/eliminar.svg">
+              <img src="imagenes/eliminar.svg" data-id="${cat.id}">
             </div>
         </div>
         <div class="texto-perrito">
@@ -54,26 +56,46 @@ function printHTML(cats){
         </div>
     </div>
         `;
-        contenedorPerritos.appendChild(row);         
-        const deletePerrito = row.querySelector(".delete-perrito");
-        deletePerrito.addEventListener("click", eliminarCat);
+
+          contenedorPerritos.appendChild(row);         
+          const deletePerrito = row.querySelector(".delete-perrito");
+          preeliminar(deletePerrito,cat.id, row);
     });
 }
 
-async function  eliminarCat(){
+
+function preeliminar(deletePerrito,id, row){
+  //console.log(deletePerrito);
+  //console.log(id);
+  //console.log(row);      
+        
+       deletePerrito.addEventListener("click", (event)=> {
+       eliminarmensaje.style.display = 'block';
+       botonEliminar.setAttribute("data-id",id);
+        mostrarConfirmacionEliminar(id, row)
+
+  });    
+} 
+
+function mostrarConfirmacionEliminar(id, row){
   eliminarmensaje.style.display = 'block';
 
-
-  const eliminar =await axios.delete(`http://localhost:3000/cats/1`);  
-  console.log(eliminar);
-  //
- // printHTML(cats);
+  botonEliminar.addEventListener("click", () => eliminarCat(id, row));
 }
 
 
-botonEliminar.addEventListener("click",()=>{
+async function  eliminarCat(id, row){
+  console.log(id);
+    const response = await axios.delete(`http://localhost:3000/cats/${id}`);
+    console.log(response);
+    row.remove(); 
+    
   eliminarmensaje.style.display = 'none';
-});
+ 
+ 
+ };
+
+botonEliminar.addEventListener("click", eliminarCat);
 
 cancelarEliminar.addEventListener("click",()=>{
   eliminarmensaje.style.display = 'none';
